@@ -1,0 +1,25 @@
+<html>
+<head>
+  <style>
+    img{
+    width:40%;
+    }
+  </style>
+  <p id="bob" style="font-size:30px">Cookies: 0</p>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Clicker Game</title>
+</head>
+<body>
+<img id="cookie" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjYnPIKnLUTEtAUfH_DRYJjhX9Y84izWY5mQslZlkq_M8w4Ic:platinumprophouse.com/cdn/shop/products/DF129605-542456789-474B-A9B8-294E9A43C078_grande.png%3Fv%3D1571439715&s">
+</body>
+</html>
+<script>
+  document.getElementById("cookie").addEventListener("click",up)
+  var score=0
+  function up() {
+    score= score+1 
+    document.getElementById("bob").innerHTML = "Cookies: "+score;
+    console.log(score)
+  }
+  </script>
