@@ -1,0 +1,27 @@
+<html>
+<head>
+  <style>
+    img{
+    width:25%;
+    }
+  </style>
+</head>
+<body>
+    <p id="paragraph">This is a picture of a Cat</p>
+</body>
+<img id="cat" src="https://catamazing.com/cdn/shop/files/catshark.jpg?v=1649869148">
+<img id="bob" src="https://www.comfortzone.com/-/media/Project/OneWeb/ComfortZone/Images/Blog/how-can-I-soothe-and-calm-my-cat.jpeg">
+<script>
+    document.getElementById("cat").addEventListener("click",cat)
+  function cat() {
+    alert("CAT!")
+  }
+    document.getElementById("paragraph").addEventListener("click",paragraph)
+  function paragraph() {
+    document.getElementById("paragraph").style.color = "red";
+  }
+  document.getElementById("bob").onmouseover("mouseover", hover)
+  function hover() {
+    document.getElementById("bob").style.width = "400px"
+  }
+  </script>

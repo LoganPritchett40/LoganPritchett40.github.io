@@ -2,24 +2,34 @@
 <head>
   <style>
     img{
-    width:40%;
+    width:20%;
     }
   </style>
-  <p id="bob" style="font-size:30px">Cookies: 0</p>
+  <p id="bob">Cookies: 0</p>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <title>Clicker Game</title>
 </head>
 <body>
-<img id="cookie" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjYnPIKnLUTEtAUfH_DRYJjhX9Y84izWY5mQslZlkq_M8w4Ic:platinumprophouse.com/cdn/shop/products/DF129605-542456789-474B-A9B8-294E9A43C078_grande.png%3Fv%3D1571439715&s">
+<img id="cookiemonster" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRE3BNDbRB5HsVleXpj3-VumeZpyvi83z1fmwMEmo3SWePN58Q:https://pbs.twimg.com/profile_images/1092451626781163523/0YzJMi-8_400x400.jpg&s">
+<img id="cookie" src="https://www.dessertfortwo.com/wp-content/uploads/2023/04/Single-Serve-Chocolate-Chip-Cookie-5-720x720.jpg">
 </body>
 </html>
 <script>
-  document.getElementById("cookie").addEventListener("click",up)
-  var score=0
+  document.getElementById("cookiemonster").addEventListener("click",up)
+  var score = 0
   function up() {
-    score= score+1 
-    document.getElementById("bob").innerHTML = "Cookies: "+score;
+    score = score + 1 
+    document.getElementById("bob").innerHTML = "cookies:" + score;
     console.log(score)
   }
+  document.getElementById("cookie").addEventListener("click",up)
+  function upgrade() {
+    //if points is equal to or greater than 20 subtract 20 points (keep remaining) and points per click increase to 2
+    if(score>=20){
+      score = score - 20
+    }
+    document.getElementById("cookie").innerHTML = "cookies" + points;
+    console.log(score)
+    }
   </script>
