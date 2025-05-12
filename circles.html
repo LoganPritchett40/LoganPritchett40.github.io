@@ -1,0 +1,52 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Circles</title>
+</head>
+
+<body>
+    <canvas id="canvas" width="4000" height="2000"> </canvas>
+</body>
+
+</html>
+<script>
+
+    var directionX = []
+    var directionY = []
+    var positionX = []
+    var positionY = []
+    var c = document.getElementById("canvas");
+    var ctx = c.getContext("2d");
+    setInterval(main, 50)
+    for (var i = 0; i < 1000; i = i + 1) {
+        positionX[i] = Math.random() * 1800
+        positionY[i] = Math.random() * 900
+        directionX[i] = Math.random()
+        directionY[i] = Math.random()
+    }
+    function main() {
+        ctx.clearRect(0, 0, 2000, 1000)
+        for (var i = 0; i < 1000; i = i + 1) {
+            positionX[i] = positionX[i] + directionX[i]
+            positionY[i] = positionY[i] + directionY[i]
+            ctx.fillRect(positionX[i], positionY[i], 100, 100)
+            if (positionX[i] < 0) {
+                directionX[i] = -directionX[i]
+            }
+            if (positionY[i] < 0) {
+                directionY[i] = -directionY[i]
+            }
+            if (positionY[i] > 900) {
+                directionY[i] = -directionY[i]
+            }
+            if (positionX[i] > 1800) {
+                directionX[i] = -directionX[i]
+            }
+
+        }
+    }
+
+
+</script>

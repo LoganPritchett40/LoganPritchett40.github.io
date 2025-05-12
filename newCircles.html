@@ -1,0 +1,68 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bouncing Ball with Gravity</title>
+</head>
+
+<body>
+    <canvas id="canvas"></canvas>
+    <script>
+        var canvas = document.getElementById("canvas");
+        var ctx = canvas.getContext("2d");
+
+        canvas.width = 400;
+        canvas.height = 300;
+
+        var ballX = []
+        var ballY = []
+        var ballSpeedX = []
+        var ballSpeedY = []
+        var ballRadius = []
+        var gravity = []
+        var bounceFactor = []
+        var friction = []
+        setInterval(loop, 10)
+        for (var i = 0; i < 10; i = i + 1) {
+            ballX[i] = Math.random()
+            ballY[i] = Math.random()
+            ballSpeedX[i] = Math.random()*20
+            ballSpeedY[i] = Math.random()*20
+            ballRadius[i] = Math.random()*20
+            gravity[i] = Math.random()*.2
+            bounceFactor[i] = Math.random()
+            friction[i] = Math.random()
+        }
+        function loop() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (var i = 0; i < 10; i = i + 1) {
+                ballSpeedY[i] = ballSpeedY[i] + gravity[i];
+
+                ballX[i] = ballX[i] + ballSpeedX[i]
+                ballY[i] = ballY[i] + ballSpeedY[i]
+                if (ballX[i] - ballRadius[i] < 0) {
+                    ballSpeedX[i] = -ballSpeedX[i] * friction[i]
+                }
+
+                if (ballX[i] + ballRadius[i] > canvas.width) {
+                    ballSpeedX[i] = -ballSpeedX[i] * friction[i];
+                }
+
+                if (ballY[i] + ballRadius[i] > canvas.height) {
+                    ballY[i] = canvas.height - ballRadius[i];
+                    ballSpeedY[i] = -ballSpeedY[i] * bounceFactor[i];
+                    ballSpeedX[i] = ballSpeedX[i] * friction[i];
+                }
+
+                ctx.fillStyle = "blue";
+                ctx.beginPath();
+                ctx.arc(ballX[i], ballY[i], ballRadius[i], 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+    </script>
+</body>
+
+</html>
